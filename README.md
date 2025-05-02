@@ -3,7 +3,7 @@
 Eine kleine, animierte Webszene mit einem laufenden Strichmännchen – komplett in **HTML & CSS** umgesetzt!
 
 ## Screenshot
-![stickManAnimation.png](https://github.com/MsCodingLabs/quizze/blob/main/quizze.png)
+![stickManAnimation.png](https://github.com/MsCodingLabs/StickManAnimation/blob/main/stickmanAnimation.png)
 
 ## ✨ Features
 - **Bewegte Arme & Beine** dank CSS-Keyframes
