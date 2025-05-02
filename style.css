@@ -1,0 +1,206 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Stil für den gesamten Körper der Webseite */
+body {
+  width: 100%; /* Volle Breite des Viewports */
+  height: 100vh; /* Volle Höhe des Viewports */
+  background: linear-gradient(black, white); /* Verlaufshintergrund von Schwarz nach Weiß */
+  position: relative; /* Relative Positionierung für Überlagerungen */
+  overflow: hidden; /* Verstecke Überlaufinhalte */
+}
+
+/* Pseudo-Element vor dem Körper für animierten Hintergrund */
+body::before {
+  content: ""; /* Inhaltsloses Pseudo-Element */
+  position: absolute; /* Absolute Positionierung im Verhältnis zum Body */
+  width: 100%; /* Volle Breite des Viewports */
+  height: 100%; /* Volle Höhe des Viewports */
+  opacity: 0; /* Anfangs unsichtbar */
+  z-index: 2; /* Z-Index über anderen Inhalten */
+  background-color: black; /* Schwarzer Hintergrund */
+  animation: background-change 4s linear 5s 1; /* Animiere Hintergrundfarbwechsel */
+}
+
+/* Stil für die Straße */
+.road {
+  height: 100px; /* Höhe der Straße */
+  width: 100%; /* Volle Breite des Viewports */
+  background: linear-gradient(rgb(19, 19, 19), rgb(32, 32, 32)); /* Verlaufshintergrund für Straße */
+  position: absolute; /* Absolute Positionierung */
+  bottom: 0; /* Am unteren Rand der Seite positionieren */
+  z-index: 1; /* Z-Index unter anderen Elementen */
+}
+
+/* Stil für den Hauptcontainer */
+.container {
+  width: 140px; /* Breite des Hauptcontainers */
+  height: 240px; /* Höhe des Hauptcontainers */
+  position: absolute; /* Absolute Positionierung */
+  bottom: 90px; /* Abstand vom unteren Rand */
+  animation: container-move 8s linear 1 forwards; /* Animiere Bewegung des Hauptcontainers */
+}
+
+/* Stil für den zusätzlichen Container */
+.container1 {
+  width: 420px; /* Breite des zusätzlichen Containers erhöht*/
+  height: 420px; /* Höhe des zusätzlichen Containers erhöht*/
+  position: absolute; /* Absolute Positionierung */
+  bottom: 90px; /* Abstand vom unteren Rand */
+  left: 500px; /* Abstand vom linken Rand */
+  animation: container1 1s linear 9s 1 forwards, container1-move 10s linear 9s 1 forwards; /* Animiere Erscheinung und Bewegung */
+  opacity: 0; /* Anfangs unsichtbar */
+  background-image: url(animiertes-strichmaennchen-bild-0015.gif); /* Hintergrundbild aus Bild  */
+  background-size: cover; /* Bildgröße anpassen */
+  background-repeat: no-repeat; /* Hintergrundbild nicht wiederholen */
+}
+
+/* Stil für den Kopf des Stickmans im Hauptcontainer */
+.container .head {
+  width: 80px; /* Breite des Kopfes */
+  height: 80px; /* Höhe des Kopfes */
+  border-radius: 50%; /* Kreisförmige Randradien */
+  border: 5px solid black; /* Schwarzer Rand */
+  left: 24px; /* Abstand vom linken Rand */
+  position: absolute; /* Absolute Positionierung im Hauptcontainer */
+}
+
+/* Gemeinsamer Stil für Körper, Hände und Beine im Hauptcontainer */
+.body, .left-hand, .right-hand, .left-leg, .right-leg {
+  width: 5px; /* Breite */
+  height: 80px; /* Höhe */
+  background-color: black; /* Schwarze Farbe */
+  position: absolute; /* Absolute Positionierung */
+}
+
+/* Stil für den Körper im Hauptcontainer */
+.container .body {
+  left: 65px; /* Abstand vom linken Rand */
+  top: 85px; /* Abstand vom oberen Rand */
+}
+
+/* Stil für den linken Arm im Hauptcontainer */
+.container .left-hand {
+  left: 64px; /* Abstand vom linken Rand */
+  top: 90px; /* Abstand vom oberen Rand */
+  transform: rotate(26deg); /* Rotation um 26 Grad */
+  transform-origin: top; /* Ursprung der Rotation oben */
+  animation: left-hand 1s linear infinite alternate; /* Animiere linken Arm */
+}
+
+/* Stil für den rechten Arm im Hauptcontainer */
+.container .right-hand {
+  left: 64px; /* Abstand vom linken Rand */
+  top: 90px; /* Abstand vom oberen Rand */
+  transform: rotate(-26deg); /* Rotation um -26 Grad */
+  transform-origin: top; /* Ursprung der Rotation oben */
+  animation: right-hand 1s linear infinite alternate; /* Animiere rechten Arm */
+}
+
+/* Stil für das linke Bein im Hauptcontainer */
+.container .left-leg {
+  left: 64px; /* Abstand vom linken Rand */
+  top: 163px; /* Abstand vom oberen Rand */
+  transform: rotate(23deg); /* Rotation um 23 Grad */
+  transform-origin: top; /* Ursprung der Rotation oben */
+  animation: left-leg 1s linear infinite alternate; /* Animiere linkes Bein */
+}
+
+/* Stil für das rechte Bein im Hauptcontainer */
+.container .right-leg {
+  left: 64px; /* Abstand vom linken Rand */
+  top: 163px; /* Abstand vom oberen Rand */
+  transform: rotate(-23deg); /* Rotation um -23 Grad */
+  transform-origin: top; /* Ursprung der Rotation oben */
+  animation: right-leg 1s linear infinite alternate; /* Animiere rechtes Bein */
+}
+
+/* Animationen für Bewegungen und Effekte */
+@keyframes container-move {
+  0% {
+      left: 0px; /* Startposition links */
+      opacity: 1; /* Vollständig sichtbar */
+  }
+  98% {
+      left: 400px; /* Endposition links */
+      opacity: 1; /* Vollständig sichtbar */
+  }
+  100% {
+      left: 400px; /* Endposition links */
+      opacity: 0; /* Vollständig unsichtbar */
+  }
+}
+
+@keyframes left-hand {
+  0% {
+      transform: rotate(26deg); /* Startrotation */
+  }
+  100% {
+      transform: rotate(-26deg); /* Endrotation */
+  }
+}
+
+@keyframes right-hand {
+  0% {
+      transform: rotate(-26deg); /* Startrotation */
+  }
+  100% {
+      transform: rotate(26deg); /* Endrotation */
+  }
+}
+
+@keyframes left-leg {
+  0% {
+      transform: rotate(23deg); /* Startrotation */
+  }
+  100% {
+      transform: rotate(-23deg); /* Endrotation */
+  }
+}
+
+@keyframes right-leg {
+  0% {
+      transform: rotate(-23deg); /* Startrotation */
+  }
+  100% {
+      transform: rotate(23deg); /* Endrotation */
+  }
+}
+
+@keyframes background-change {
+  0% {
+      opacity: 0; /* Anfangs unsichtbar */
+  }
+  60%, 75% {
+      opacity: 0; /* Zwischenphasen unsichtbar */
+  }
+  85%, 100% {
+      opacity: 1; /* Endphase sichtbar */
+  }
+}
+
+@keyframes container1 {
+  0% {
+      opacity: 0; /* Anfangs unsichtbar */
+  }
+  100% {
+      opacity: 1; /* Vollständig sichtbar */
+  }
+}
+
+@keyframes container1-move {
+  0% {
+      left: 450px; /* Startposition links */
+  }
+  25%, 35% {
+      left: 450px; /* Zwischenposition links */
+  }
+  60%, 61% {
+      left: 550px; /* Zwischenposition links */
+  }
+  70%, 100% {
+      left: 500px; /* Endposition links */
+  }
+}
